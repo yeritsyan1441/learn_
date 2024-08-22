@@ -23,7 +23,7 @@ _roman = {1: 'I',
           1000: 'M'}
 
 
-def expanded_form(number):
+def expanded_form(number): #O(n^2)
     list_number = list(str(number))
     # check = []
     count = len(list_number)-1
