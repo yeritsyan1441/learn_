@@ -61,7 +61,7 @@ def main(num):
             roman_number += "D" + (k - 500) // 100 * "C"
         elif k == 900:
             roman_number += "CM"
-        #_________K >= 3000___________
+        #_________K <= 3000___________
         elif 1000 < k <= 3000:
             roman_number += k // 1000 * "M"
     return roman_number
