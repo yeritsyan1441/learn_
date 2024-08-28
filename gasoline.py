@@ -86,3 +86,4 @@ class GasStation:
                 for element in lst:
                     file.write(str(element) + "\n")
 
+        return ""
