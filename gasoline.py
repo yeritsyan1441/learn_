@@ -77,13 +77,9 @@ class GasStation:
             self.add_price_in_coupon = self.liter * 210
 
         lst.append(f"Price: {self.add_price_in_coupon} AMD | Liter: {self.liter}")
-        if not os.path.exists('check.txt'):
-            with open(r"D:\PythonLess\check.txt", "w") as file:
-                for element in lst:
-                    file.write(str(element) + "\n")
-        else:
-            with open(r"D:\PythonLess\check.txt", "a") as file:
-                for element in lst:
-                    file.write(str(element) + "\n")
+      
+        with open("check.txt", "a") as file:
+            for element in lst:
+                file.write(str(element) + "\n")
 
         return ""
