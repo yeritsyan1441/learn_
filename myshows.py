@@ -20,19 +20,22 @@ class MyShows(object):
     def _is_movie_name(movie_name) -> bool:
         if isinstance(movie_name, str):
             return True
-        raise Exception("Movie name must be string")
+        else:
+            raise Exception("Movie name must be string")
 
     @staticmethod
     def _is_page(page_name) -> bool:
         if isinstance(page_name, str):
             return True
-        raise Exception("Page name must be string")
+        else:
+            raise Exception("Page name must be string")
 
     @staticmethod
     def _is_movie_data(movie_name) -> bool:
         if isinstance(movie_name, int):
             return True
-        raise Exception("Movie date  must be integer")
+        else:
+            raise Exception("Movie date  must be integer")
 
     @staticmethod
     def _is_movie_number(movie_number) -> bool:
