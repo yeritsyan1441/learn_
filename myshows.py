@@ -106,9 +106,9 @@ class MyShows(object):
 
     @rating.setter
     def rating(self, value):
-        if isinstance(value, int):
+        if isinstance(value, int) and MyShows.MIN_RATING <= value <= MinShows.MAX_RATING:
             self.__rating = value
-        raise ValueError('Rate must be number.')
+        raise ValueError('Rate must be number and in range (1,10)') 
 
     @rating.deleter
     def rating(self):
