@@ -1,22 +1,3 @@
-"""1․ Գրել MyShows class, որը․
-   - __init__ ում կստանա
-     -- սերիալի անունը (պետք է լինի տեքստ),
-     -- հարթակը, որտեղ ցուցադրվում է սերիալը (պետք է լինի տեքստ),
-     -- առաջին սերիան դուրս գալու տարեթիվը (պետք է լինի ամբողջ թիվ),
-     -- սերիայի համարը, որը դիտում է օգտատերը (որ սերիային է հասել) (պետք է լինի ամբողջ թիվ), default արժեքը պետք է լինի 1,
-     -- օգտատիրոջ դրած գնահատականը (պետք է լինի ամբողջ թիվ 1-10 միջակայքում), default արժեքը պետք է լինի None,
-     -- գլխավոր դերասանների ցանկը (պետք է լինի լիստ),
-   - բոլոր ատրիբուտները կլինեն private,
-   - կունենա getter բոլոր ատրիբուտների համար,
-   - միայն սերիայի համարի և գնահատականի համար կունենա նաև setter,
-   - միայն գնահատականի համար կունենա նաև deleter, այնպես պետք է ռեալիզացնել, որ գնահատականը ջնջելուց հետո այն նորից սահմանելու հնարավորություն լինի,
-   - կունենա մեթոդներ դերասանների ցանկը թարմացնելու համար (լիստից անուն ջնջել, լիստում անուն ավելացնել),
-   - կունենա մեթոդ, որը կվերադարձնի սերիալի մասին ամբողջ ին"""
-
-
-import imdb
-
-
 class MyShows(object):
 
     MIN_RATING = 1
@@ -57,19 +38,22 @@ class MyShows(object):
     def _is_movie_number(movie_number) -> bool:
         if isinstance(movie_number, int):
             return True
-        raise ValueError("Movie number must be integer")
+        else:
+            raise ValueError("Movie number must be integer")
 
     @staticmethod
     def _is_movie_actor(actors):
         if isinstance(actors, list):
             return True
-        raise Exception("Movie actors must be list")
+        else:
+            raise Exception("Movie actors must be list")
 
     @classmethod
     def _check_rating(cls, rate) -> bool:
         if cls.MIN_RATING <= rate <= cls.MAX_RATING:
             return True
-        raise Exception("Rate must be <= 10")
+        else:
+            raise Exception("Rate must be <= 10")
 
     @property
     def movie_name(self):
@@ -98,7 +82,8 @@ class MyShows(object):
     def movie_number(self, value):
         if isinstance(value, int):
             self.__movie_number = value
-        raise Exception("Movie number must be integer")
+        else:
+            raise Exception("Movie number must be integer")
 
     @property
     def main_actors(self):
@@ -106,9 +91,11 @@ class MyShows(object):
 
     @rating.setter
     def rating(self, value):
-        if isinstance(value, int) and MyShows.MIN_RATING <= value <= MinShows.MAX_RATING:
+        if isinstance(value, int) and MyShows.MIN_RATING <= value <= MyShows.MAX_RATING:
+            print(f"New rating {value}")
             self.__rating = value
-        raise ValueError('Rate must be number and in range (1,10)') 
+        else:
+            raise ValueError('Rate must be number and in range (1,10)') 
 
     @rating.deleter
     def rating(self):
@@ -124,13 +111,9 @@ class MyShows(object):
             return f"{actor_name} not in actor list"
 
     def info(self):
-        try:
-            ia = imdb.IMDb()
-            items = ia.search_movie(f'{self.__movie_name}')
-            for i in items:
-                print(i)
-        except Exception:
-            return "Movie not found"
+        ...
 
 
-
+user = MyShows("avenjers", "kinopoisk", 2022, 5, 1, ["hulk","captain america"])
+print(user.rating)
+user.rating = 10
