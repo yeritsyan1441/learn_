@@ -28,11 +28,7 @@ class MyList:
                     if k != index:
                         new += [self.number[k]]
                 self.number = new.copy()
-            # if index and not self.number:
-            #     raise IndexError("List is empty")
-            # else:
-            #     print(f"{self.number[index]} was deleted")
-
+   
     def sort(self, reverse=False):
         if reverse is False:
             for j in range(len(self.number)):
