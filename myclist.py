@@ -4,7 +4,9 @@
 
 
 class MyList:
-
+    
+    __num = None
+    
     def __init__(self):
         self.number = []
 
@@ -21,6 +23,7 @@ class MyList:
         if index is None and self.number:
             self.number = self.number[:item]
             item += -1
+            self.__num = self.number[item]
         else:
             if isinstance(index, int) and self.number:
                 new = []
